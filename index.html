@@ -202,7 +202,40 @@ https://templatemo.com/tm-554-ocean-vibes
                 </div>                
             </div> 
         </div>
-
+        
+        <div id="kalkulator" class="popup mfp-with-anim mfp-hide tm-bg-gray">
+            <a href="#" class="tm-close-popup">
+                return home
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="tm-row tm-intro-row">
+                <div class="tm-col tm-bg-white tm-intro-pad">
+                    <h2 class="tm-color-primary tm-page-title">Kalkulator</h2>
+                    <div class="tm-row tm-content-row">
+                        <div class="tm-col-6 tm-intro-col-l">
+                            <div>
+        <label>Jaką kryptowalutę chcesz przeliczyć?
+        <select id="krypto">
+            <option value="btc">Bitcoin</option>
+            <option value="eth">Ethereum</option>
+            <option value="waves">Waves</option>
+        </select>
+        </label>
+        <br>
+        <label>Ile?
+        <input id="ile" type="number">
+        </label>
+        <br>
+        <button id="button" type="button">Przelicz na PLN!</button>
+        <div id="message"></div>
+        <br>
+    </div>
+                        </div>
+                    </div>
+                </div>                
+            </div> 
+        </div>
+        
         <!--
 <div id="celo" class="popup mfp-with-anim mfp-hide tm-bg-gray">
             <a href="#" class="tm-close-popup">
@@ -395,5 +428,30 @@ https://templatemo.com/tm-554-ocean-vibes
     <script src="templatemo_554_ocean_vibes/js/isotope.pkgd.min.js"></script>
     <script src="templatemo_554_ocean_vibes/js/jquery.magnific-popup.min.js"></script>    
     <script src="templatemo_554_ocean_vibes/js/templatemo-script.js"></script>
+    <script>
+  // Step 1: Find the element we want the event on
+  var button = document.getElementById("button");
+  // Step 2: Define the event listener function
+     
+  var onButtonClick = function() {
+    var ile = document.getElementById("ile").value;
+    var krypto = document.getElementById("krypto").value;
+    var przeliczenie;
+    var wartosc;
+    if (krypto === "btc") {
+        wartosc = 171825,2226*ile;
+        przeliczenie = ile + " BTC to " + wartosc + " PLN,   ";
+    } else if (krypto === "eth") {
+        wartosc = 13065,6376*ile;
+        przeliczenie = ile + " ETH to " + wartosc + " PLN,   ";
+    } else {
+        wartosc = 92,2455*ile;
+        przeliczenie = ile + " WAVES to " + wartosc + " PLN,   ";
+    }
+    document.getElementById("message").textContent += przeliczenie;  
+  };
+  // Step 3: Attach event listener to element
+  button.addEventListener("click", onButtonClick);
+  </script>
 </body>
 </html>
